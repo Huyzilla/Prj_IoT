@@ -1,0 +1,5 @@
+../Application/User/gui/PatternStorage.cpp:18:13:void eraseFlashSector()	1
+../Application/User/gui/PatternStorage.cpp:40:9:uint8_t getNextPatternIndex()	3
+../Application/User/gui/PatternStorage.cpp:54:6:void savePatternToFlash(const uint8_t*, uint8_t)	6
+../Application/User/gui/PatternStorage.cpp:80:6:bool findPatternMatch(const uint8_t*, uint8_t)	5
+../Application/User/gui/PatternStorage.cpp:95:6:void deleteAllSavedPatterns()	1

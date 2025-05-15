@@ -8,6 +8,7 @@
 
 DrawView::DrawView()
     : patternLength(0),
+<<<<<<< HEAD
       currentLineIndex(0),
       successVisible(false),
       tickCounter(0),
@@ -17,6 +18,18 @@ DrawView::DrawView()
 	  successRegister(false),
 	  failRegister(false),
       failedAttempts(0),
+=======
+      currentLineIndex(0), // một biến đếm, giữ vai trò như một "dấu trang" hay "con trỏ" để
+	  // theo dõi xem bạn đã sử dụng đến widget đường thẳng (Line) thứ mấy để vẽ.
+      successVisible(false),
+      tickCounter(0),
+	  isRegistering(false),
+	  patternTempLength(0), // Lưu độ dài của mật khẩu ở lần nhập đầu tiên để so sánh với lần nhập xác nhận.
+	  registerStage(0),
+	  successRegister(false),
+	  failRegister(false),
+      failedAttempts(0), // đếm số lần người dùng nhập sai mật khẩu liên tiếp
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
       isLockoutActive(false),
       countdownSeconds(30),
       lockoutTickCounter(0)
@@ -63,15 +76,27 @@ void DrawView::addPointToPattern(uint8_t index)
 {
     if (!pointUsed[index] && patternLength < 9) {
         patternBuffer[patternLength++] = index + 1; // lưu từ 1–9
+<<<<<<< HEAD
+=======
+        // // patternBuffer: lưu trữ chuỗi mật khẩu mà người dùng đang vẽ.
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
         pointUsed[index] = true;
         drawLineBetweenLastTwoDots();
     }
 }
 // Vẽ line nối giữa 2 nút
+<<<<<<< HEAD
+=======
+// cung cấp phản hồi hình ảnh cho người dùng, bằng cách vẽ một đường thẳng nối điểm vừa chạm với điểm ngay trước đó
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
 void DrawView::drawLineBetweenLastTwoDots()
 {
     if (patternLength < 2 || currentLineIndex >= 10) return;
 
+<<<<<<< HEAD
+=======
+    // Xác định 2 điểm cần nối
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
     int fromIdx = patternBuffer[patternLength - 2] - 1;
     int toIdx   = patternBuffer[patternLength - 1] - 1;
 
@@ -81,12 +106,22 @@ void DrawView::drawLineBetweenLastTwoDots()
     int y2 = dotY[toIdx] + 15;
 
     // Cập nhật vị trí và style
+<<<<<<< HEAD
+=======
+    // Cấu hình và hiển thị đường thẳng
+    // sử dụng một mảng các widget Line đã được tạo sẵn và ẩn đi
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
     lineBoxList[currentLineIndex].setLine(x1, y1, x2, y2);
     lineBoxList[currentLineIndex].setLineWidth(4);
     lineBoxList[currentLineIndex].setColor(0x0000); // RGB565 xanh
 
     // Hiển thị dòng
     lineBoxList[currentLineIndex].setVisible(true);
+<<<<<<< HEAD
+=======
+    // đảm bảo đường thằng được vẽ đè lên các widget khác. Nghĩa là khi đường thẳng tiếp theo được vẽ
+    // đường thẳng trước đó không bị xóa đi
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
     remove(lineBoxList[currentLineIndex]);
     add(lineBoxList[currentLineIndex]);
     lineBoxList[currentLineIndex].invalidate();
@@ -94,6 +129,11 @@ void DrawView::drawLineBetweenLastTwoDots()
     currentLineIndex++;
 }
 
+<<<<<<< HEAD
+=======
+// Khi người dùng kéo tay trên màn hình, hàm handleDragEvent sẽ liên tục được gọi.
+// Trong hàm này, em lấy tọa độ của ngón tay và kiểm tra xem nó có nằm trong khu vực của 9 chấm tròn hay không.
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
 void DrawView::handleDragEvent(const touchgfx::DragEvent& evt)
 {
     if (isLockoutActive || successVisible || successRegister || failRegister)
@@ -108,10 +148,21 @@ void DrawView::handleDragEvent(const touchgfx::DragEvent& evt)
         int dy = y - (dotY[i] + 15);
         if (dx*dx + dy*dy < 225) {
             addPointToPattern(i);
+<<<<<<< HEAD
+=======
+            // Nếu tọa độ hợp lệ, em gọi hàm addPointToPattern để lưu chỉ số của chấm đó vào một mảng.
+            // Ngay sau đó, hàm drawLineBetweenLastTwoDots được gọi.
+            // Hàm này sẽ lấy ra một widget Line đã được ẩn sẵn, cập nhật tọa độ để nối 2 chấm cuối cùng, và cho nó hiển thị.
+            // Biến currentLineIndex được dùng để theo dõi xem cần sử dụng đường thẳng thứ mấy.
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
         }
     }
 }
 
+<<<<<<< HEAD
+=======
+// Khi người dùng nhấc tay lên, sự kiện RELEASED được kích hoạt
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
 void DrawView::handleClickEvent(const touchgfx::ClickEvent& evt)
 {
     if (evt.getType() == touchgfx::ClickEvent::RELEASED)
@@ -424,8 +475,13 @@ void DrawView::hideAllNotifications()
     textAreaTryAgain.setVisible(false);
     textAreaTryAgain.invalidate();
 
+<<<<<<< HEAD
     textAreaDeleteAll.setVisible(false);
     textAreaDeleteAll.invalidate();
+=======
+    // textAreaDeleteAll.setVisible(false);
+    // textAreaDeleteAll.invalidate();
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
 
     // Tắt các hộp viền
     boxWithBorderTrue.setVisible(false);

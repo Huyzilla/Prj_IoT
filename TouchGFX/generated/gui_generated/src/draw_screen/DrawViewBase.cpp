@@ -60,6 +60,7 @@ DrawViewBase::DrawViewBase()
     textAreaStart.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textAreaStart.setLinespacing(0);
     textAreaStart.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KRA7));
+<<<<<<< HEAD
     add(textAreaStart);
 
     textAreaTryAgain.setPosition(34, 54, 179, 35);
@@ -71,6 +72,11 @@ DrawViewBase::DrawViewBase()
     textAreaTryAgain.setVisible(false);
     add(textAreaTryAgain);
 
+=======
+    textAreaStart.setVisible(false);
+    add(textAreaStart);
+
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
     textAreaWrong.setPosition(20, 54, 202, 35);
     textAreaWrong.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textAreaWrong.setLinespacing(0);

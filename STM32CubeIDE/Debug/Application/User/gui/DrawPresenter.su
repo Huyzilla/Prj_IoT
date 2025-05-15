@@ -1,0 +1,6 @@
+../../TouchGFX/gui/include/gui/draw_screen/DrawPresenter.hpp:28:13:DrawPresenter::~DrawPresenter()	0	static
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawPresenter.cpp:10:6:virtual void DrawPresenter::activate()	0	static
+../../TouchGFX/gui/include/gui/draw_screen/DrawPresenter.hpp:28:13:virtual DrawPresenter::~DrawPresenter()	8	static
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawPresenter.cpp:20:6:virtual void DrawPresenter::onRequestRegisterMode()	0	static
+../../TouchGFX/gui/include/gui/draw_screen/DrawPresenter.hpp:28:13:virtual void* DrawPresenter::_ZThn4_N13DrawPresenterD1Ev()	0	static
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawPresenter.cpp:4:1:DrawPresenter::DrawPresenter(DrawView&)	0	static

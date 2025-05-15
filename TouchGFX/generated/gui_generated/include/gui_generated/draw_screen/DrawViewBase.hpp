@@ -10,7 +10,10 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+<<<<<<< HEAD
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+=======
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
 #include <touchgfx/widgets/BoxWithBorder.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
@@ -42,7 +45,10 @@ protected:
     touchgfx::Image dot1;
     touchgfx::Image dot6;
     touchgfx::TextArea textAreaStart;
+<<<<<<< HEAD
     touchgfx::TextAreaWithOneWildcard textAreaTryAgain;
+=======
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
     touchgfx::TextArea textAreaWrong;
     touchgfx::BoxWithBorder boxWithBorderTrue;
     touchgfx::TextArea textAreaTrue;
@@ -58,12 +64,15 @@ protected:
     static const uint16_t TEXTAREATRYAGAIN_SIZE = 30;
     touchgfx::Unicode::UnicodeChar textAreaTryAgainBuffer[TEXTAREATRYAGAIN_SIZE];
 
+<<<<<<< HEAD
     /*
      * Wildcard Buffers
      */
     static const uint16_t TEXTAREATRYAGAIN_SIZE = 30;
     touchgfx::Unicode::UnicodeChar textAreaTryAgainBuffer[TEXTAREATRYAGAIN_SIZE];
 
+=======
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
 private:
 
 };

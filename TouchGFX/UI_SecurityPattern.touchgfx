@@ -109,6 +109,10 @@
             "Y": 54,
             "Width": 202,
             "Height": 35,
+<<<<<<< HEAD
+=======
+            "Visible": false,
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
             "TextId": "__SingleUse_KRA7",
             "TextRotation": "0",
             "Color": {
@@ -119,6 +123,7 @@
           },
           {
             "Type": "TextArea",
+<<<<<<< HEAD
             "Name": "textAreaTryAgain",
             "X": 34,
             "Y": 54,
@@ -140,6 +145,8 @@
           },
           {
             "Type": "TextArea",
+=======
+>>>>>>> a518b43136dcb21f4e1c68b4150c777c28e6dd52
             "Name": "textAreaWrong",
             "X": 20,
             "Y": 54,
