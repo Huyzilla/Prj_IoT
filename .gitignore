@@ -1,0 +1,42 @@
+# STM32CubeIDE build folders
+Debug/
+Release/
+build/
+
+# IDE settings
+.settings/
+.metadata/
+*.launch
+*.log
+*.tmp
+
+# Project backup and temp files
+*.bak
+*.swp
+*~ 
+*.user
+*.suo
+*.DS_Store
+*.d
+
+# Auto-generated files (optional)
+Core/Startup/
+*.ioc
+
+# Binary files
+*.elf
+*.hex
+*.bin
+*.map
+
+# Makefiles & CMake (optional - nếu không tự viết)
+Makefile
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Python cache (nếu có script)
+__pycache__/
+*.pyc
+
+STM32CubeIDE/Application/User/gui/PatternStorage.hpp

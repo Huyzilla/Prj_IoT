@@ -1,0 +1,332 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "Draw",
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "image1",
+            "Width": 240,
+            "Height": 320,
+            "LockPosition": true,
+            "RelativeFilename": "__generated\\alternate_theme_images_backgrounds_240x320_poly.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image1_1",
+            "Width": 240,
+            "Height": 320,
+            "LockPosition": true,
+            "RelativeFilename": "__generated\\alternate_theme_images_backgrounds_240x320_poly.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "dot7",
+            "X": 27,
+            "Y": 254,
+            "Width": 30,
+            "Height": 30,
+            "RelativeFilename": "dot_PNG430.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "dot8",
+            "X": 106,
+            "Y": 254,
+            "Width": 30,
+            "Height": 30,
+            "RelativeFilename": "dot_PNG430.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "dot9",
+            "X": 183,
+            "Y": 254,
+            "Width": 30,
+            "Height": 30,
+            "RelativeFilename": "dot_PNG430.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "dot2",
+            "X": 105,
+            "Y": 136,
+            "Width": 30,
+            "Height": 30,
+            "RelativeFilename": "dot_PNG430.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "dot3",
+            "X": 182,
+            "Y": 136,
+            "Width": 30,
+            "Height": 30,
+            "RelativeFilename": "dot_PNG430.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "dot4",
+            "X": 27,
+            "Y": 194,
+            "Width": 30,
+            "Height": 30,
+            "RelativeFilename": "dot_PNG430.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "dot5",
+            "X": 106,
+            "Y": 194,
+            "Width": 30,
+            "Height": 30,
+            "RelativeFilename": "dot_PNG430.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "dot1",
+            "X": 27,
+            "Y": 136,
+            "Width": 30,
+            "Height": 30,
+            "LockPosition": true,
+            "RelativeFilename": "dot_PNG430.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "dot6",
+            "X": 183,
+            "Y": 194,
+            "Width": 30,
+            "Height": 30,
+            "RelativeFilename": "dot_PNG430.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaStart",
+            "X": 20,
+            "Y": 54,
+            "Width": 202,
+            "Height": 35,
+            "TextId": "__SingleUse_KRA7",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaTryAgain",
+            "X": 34,
+            "Y": 54,
+            "Width": 179,
+            "Height": 35,
+            "Visible": false,
+            "TextId": "__SingleUse_NOYL",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_U2OR",
+              "UseBuffer": true,
+              "BufferSize": 30
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaWrong",
+            "X": 20,
+            "Y": 54,
+            "Width": 202,
+            "Height": 35,
+            "Visible": false,
+            "TextId": "__SingleUse_0ND5",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "BoxWithBorder",
+            "Name": "boxWithBorderTrue",
+            "X": 13,
+            "Y": 136,
+            "Width": 217,
+            "Height": 50,
+            "Visible": false,
+            "Color": {
+              "Red": 129,
+              "Green": 232,
+              "Blue": 39
+            },
+            "BorderColor": {
+              "Red": 129,
+              "Green": 232,
+              "Blue": 39
+            },
+            "BorderSize": 5
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaTrue",
+            "X": 39,
+            "Y": 152,
+            "Width": 165,
+            "Height": 18,
+            "Visible": false,
+            "TextId": "__SingleUse_WADJ",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaRegister",
+            "X": 20,
+            "Y": 54,
+            "Width": 202,
+            "Height": 35,
+            "Visible": false,
+            "TextId": "__SingleUse_8H7F",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaConfirm",
+            "X": 20,
+            "Y": 54,
+            "Width": 202,
+            "Height": 35,
+            "Visible": false,
+            "TextId": "__SingleUse_ZP54",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaConfirmSuccess",
+            "X": 31,
+            "Y": 151,
+            "Width": 179,
+            "Height": 18,
+            "Visible": false,
+            "TextId": "__SingleUse_VHBE",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaConfirmFail",
+            "X": 58,
+            "Y": 151,
+            "Width": 126,
+            "Height": 18,
+            "Visible": false,
+            "TextId": "__SingleUse_NTF7",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaTryAgain",
+            "X": 34,
+            "Y": 54,
+            "Width": 179,
+            "Height": 35,
+            "Visible": false,
+            "TextId": "__SingleUse_JEFT",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 30
+            }
+          }
+        ],
+        "Interactions": []
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "UI_SecurityPattern",
+    "Resolution": {
+      "Width": 240,
+      "Height": 320
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "Draw",
+    "SelectedStartupLanguage": "GB",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      16
+    ],
+    "AvailableLCDs": {
+      "16": "LCD16bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 240,
+        "Height": 320
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommandOverride": "make -f ../gcc/Makefile -j8",
+    "FlashTargetCommandOverride": "make -f ../gcc/Makefile flash",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Portrait",
+    "Family": "STM32F4",
+    "SubFamily": "STM32F429/439",
+    "Toolchain": "STM32CubeIDE",
+    "Platform": "m4",
+    "ProjectFile": "../STM32F429I_DISCO_REV_D01.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": [],
+    "AdditionalFeatures": [
+      "CWRVector",
+      "VectorFonts"
+    ]
+  },
+  "Version": "4.25.0",
+  "CreatedBy": "4.25.0"
+}
