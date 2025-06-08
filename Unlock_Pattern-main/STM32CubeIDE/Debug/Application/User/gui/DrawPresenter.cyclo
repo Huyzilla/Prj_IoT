@@ -1,0 +1,6 @@
+../../TouchGFX/gui/include/gui/draw_screen/DrawPresenter.hpp:30:13:DrawPresenter::~DrawPresenter()	1
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawPresenter.cpp:10:6:virtual void DrawPresenter::activate()	1
+../../TouchGFX/gui/include/gui/draw_screen/DrawPresenter.hpp:30:13:virtual DrawPresenter::~DrawPresenter()	1
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawPresenter.cpp:20:6:virtual void DrawPresenter::onRequestRegisterMode()	1
+../../TouchGFX/gui/include/gui/draw_screen/DrawPresenter.hpp:30:13:virtual void* DrawPresenter::_ZThn4_N13DrawPresenterD1Ev()	1
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawPresenter.cpp:4:1:DrawPresenter::DrawPresenter(DrawView&)	1
