@@ -15,21 +15,22 @@
 ../../TouchGFX/gui/include/gui/draw_screen/LineWidget.hpp:25:18:virtual void LineWidget::draw(const touchgfx::Rect&) const	12
 ../../TouchGFX/gui/include/gui/draw_screen/LineWidget.hpp:56:28:virtual touchgfx::Rect LineWidget::getSolidRect() const	1
 ../../TouchGFX/gui/include/gui/draw_screen/LineWidget.hpp:7:7:LineWidget::~LineWidget()	1
-C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:21:6:virtual void DrawView::tearDownScreen()	1
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:36:6:virtual void DrawView::tearDownScreen()	1
 ../../TouchGFX/gui/include/gui/draw_screen/LineWidget.hpp:7:7:virtual LineWidget::~LineWidget()	1
 ../../TouchGFX/gui/include/gui/draw_screen/DrawView.hpp:15:13:DrawView::~DrawView()	2
 ../../TouchGFX/gui/include/gui/draw_screen/DrawView.hpp:15:13:virtual DrawView::~DrawView()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:121:18:virtual void touchgfx::Drawable::invalidateContent() const	2
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp:45:18:virtual void touchgfx::Widget::getLastChild(int16_t, int16_t, touchgfx::Drawable**)	3
-C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:5:1:DrawView::DrawView()	2
-C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:27:6:void DrawView::resetPattern()	1
-C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:37:6:void DrawView::resetLines()	2
-C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:95:6:virtual void DrawView::handleClickEvent(const touchgfx::ClickEvent&)	3
-C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:143:6:virtual void DrawView::handleTickEvent()	3
-C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:196:6:void DrawView::hideAllNotifications()	1
-C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:214:6:void DrawView::setAllDotsVisible(bool)	1
-C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:186:6:void DrawView::enterRegisterMode()	1
-C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:13:6:virtual void DrawView::setupScreen()	1
-C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:56:6:void DrawView::drawLineBetweenLastTwoDots()	3
-C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:47:6:void DrawView::addPointToPattern(uint8_t)	3
-C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:82:6:virtual void DrawView::handleDragEvent(const touchgfx::DragEvent&)	3
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:9:1:DrawView::DrawView()	2
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:42:6:void DrawView::resetPattern()	1
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:52:6:void DrawView::resetLines()	2
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:400:6:void DrawView::hideAllNotifications()	1
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:436:6:void DrawView::setAllDotsVisible(bool)	1
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:190:6:void DrawView::processRegisterPattern()	5
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:115:6:virtual void DrawView::handleClickEvent(const touchgfx::ClickEvent&)	9
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:259:6:virtual void DrawView::handleTickEvent()	10
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:377:6:void DrawView::enterRegisterMode()	1
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:28:6:virtual void DrawView::setupScreen()	1
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:71:6:void DrawView::drawLineBetweenLastTwoDots()	3
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:62:6:void DrawView::addPointToPattern(uint8_t)	3
+C:/Users/huyzi/Downloads/Unlock_Pattern-main/Unlock_Pattern-main/TouchGFX/gui/src/draw_screen/DrawView.cpp:97:6:virtual void DrawView::handleDragEvent(const touchgfx::DragEvent&)	7

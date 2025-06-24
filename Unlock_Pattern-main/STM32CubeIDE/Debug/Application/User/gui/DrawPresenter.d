@@ -52,6 +52,7 @@ Application/User/gui/DrawPresenter.o: \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/BoxWithBorder.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
  ../../TouchGFX/gui/include/gui/draw_screen/LineWidget.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp
 ../../TouchGFX/gui/include/gui/draw_screen/DrawView.hpp:
@@ -106,5 +107,6 @@ Application/User/gui/DrawPresenter.o: \
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/BoxWithBorder.hpp:
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
 ../../TouchGFX/gui/include/gui/draw_screen/LineWidget.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp:

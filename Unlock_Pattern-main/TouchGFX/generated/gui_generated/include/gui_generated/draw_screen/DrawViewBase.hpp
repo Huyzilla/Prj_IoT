@@ -11,6 +11,7 @@
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/BoxWithBorder.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
 class DrawViewBase : public touchgfx::View<DrawPresenter>
 {
@@ -43,6 +44,17 @@ protected:
     touchgfx::TextArea textAreaWrong;
     touchgfx::BoxWithBorder boxWithBorderTrue;
     touchgfx::TextArea textAreaTrue;
+    touchgfx::TextArea textAreaRegister;
+    touchgfx::TextArea textAreaConfirm;
+    touchgfx::TextArea textAreaConfirmSuccess;
+    touchgfx::TextArea textAreaConfirmFail;
+    touchgfx::TextAreaWithOneWildcard textAreaTryAgain;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t TEXTAREATRYAGAIN_SIZE = 30;
+    touchgfx::Unicode::UnicodeChar textAreaTryAgainBuffer[TEXTAREATRYAGAIN_SIZE];
 
 private:
 

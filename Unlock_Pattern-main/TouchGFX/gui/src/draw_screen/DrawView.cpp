@@ -1,13 +1,28 @@
 #include <gui/draw_screen/DrawView.hpp>
 #include <cmath>
 #include <touchgfx/hal/HAL.hpp>
+#include "stm32f4xx_hal.h"
+#include "string.h"
+#include "PatternStorage.hpp"
+
 
 DrawView::DrawView()
     : patternLength(0),
       currentLineIndex(0),
       successVisible(false),
-      tickCounter(0)
+      tickCounter(0),
+	  isRegistering(false),
+	  patternTempLength(0),
+	  registerStage(0),
+	  successRegister(false),
+	  failRegister(false),
+      failedAttempts(0),
+      isLockoutActive(false),
+      countdownSeconds(30),
+      lockoutTickCounter(0)
+
 {
+	memset(patternTemp, 0, sizeof(patternTemp));
 }
 
 void DrawView::setupScreen()
@@ -81,6 +96,11 @@ void DrawView::drawLineBetweenLastTwoDots()
 
 void DrawView::handleDragEvent(const touchgfx::DragEvent& evt)
 {
+    if (isLockoutActive || successVisible || successRegister || failRegister)
+    {
+        return;
+    }
+
     int x = evt.getNewX();
     int y = evt.getNewY();
     for (int i = 0; i < 9; i++) {
@@ -96,46 +116,142 @@ void DrawView::handleClickEvent(const touchgfx::ClickEvent& evt)
 {
     if (evt.getType() == touchgfx::ClickEvent::RELEASED)
     {
-    	// Đang fix cứng là >= 3 nút là đúng, thay bằng hàm check pattern đúng chưa nhé
+		if (isLockoutActive || successVisible || successRegister || failRegister)
+		{
+			return;
+		}
 
-        if (patternLength <= 3) // Nếu sai (thay hàm check vào chỗ này) => hiển thị cảnh báo sai
+        if (isRegistering)
+            {
+        		processRegisterPattern();
+            }
+
+        else
         {
-            textAreaWrong.setVisible(true);
-            textAreaWrong.invalidate();
-            textAreaStart.setVisible(false);
-            textAreaStart.invalidate();
 
-            resetPattern();
-            resetLines();
+        	if (!findPatternMatch(patternBuffer, patternLength)) // sai
+        	{
+	            hideAllNotifications();
+
+        	    textAreaWrong.setVisible(true);
+        	    textAreaWrong.invalidate();
+
+        	    failedAttempts++;
+
+    			if (failedAttempts >= 5)
+    			{
+    			    isLockoutActive    = true;
+    			    countdownSeconds   = 30;
+    			    lockoutTickCounter = 0;
+
+    	            hideAllNotifications();
+    			    resetLines();
+            	    resetPattern();
+    	            setAllDotsVisible(false);
+
+
+    			    // Chỉ hiển thị TextAreaTryAgain
+    			    Unicode::snprintf(textAreaTryAgainBuffer, TEXTAREATRYAGAIN_SIZE,
+    			                      "Try again in %u seconds", countdownSeconds);
+    			    textAreaTryAgain.setVisible(true);
+    			    textAreaTryAgain.invalidate();
+
+    			}
+
+
+        	    resetPattern();
+        	    resetLines();
+        	}
+        	else // đúng
+        	{
+        		failedAttempts = 0;
+
+	            hideAllNotifications();
+        	    resetLines();
+        	    resetPattern();
+
+        	    // Ẩn 9 dots
+        	    setAllDotsVisible(false);
+
+        	    // Hiển thị hộp “True”
+        	    boxWithBorderTrue.setVisible(true);
+        	    boxWithBorderTrue.invalidate();
+        	    textAreaTrue.setVisible(true);
+        	    textAreaTrue.invalidate();
+
+        	    successVisible = true;
+        	    tickCounter = 0;
+        	}
+
         }
-        else // patternLength >= 4  => coi là đúng, hiển thị “True” trong 5s
-        {
-            // Ẩn thông báo Wrong , và ẩn hướng dẫn Start
-            textAreaWrong.setVisible(false);
-            textAreaWrong.invalidate();
-            textAreaStart.setVisible(false);
-            textAreaStart.invalidate();
-            resetLines();
-            // Ẩn 9 dots
-            dot1.setVisible(false); dot1.invalidate();
-            dot2.setVisible(false); dot2.invalidate();
-            dot3.setVisible(false); dot3.invalidate();
-            dot4.setVisible(false); dot4.invalidate();
-            dot5.setVisible(false); dot5.invalidate();
-            dot6.setVisible(false); dot6.invalidate();
-            dot7.setVisible(false); dot7.invalidate();
-            dot8.setVisible(false); dot8.invalidate();
-            dot9.setVisible(false); dot9.invalidate();
+    }
+}
 
-            // Hiển thị hộp “True”
+void DrawView::processRegisterPattern()
+{
+
+    if (registerStage == 0)
+    {
+        // Lần nhập đầu tiên: lưu tạm pattern
+        memcpy(patternTemp, patternBuffer, patternLength);
+        patternTempLength = patternLength;
+        registerStage = 1;
+
+        hideAllNotifications();
+        setAllDotsVisible(true);
+
+        // Hiển thị yêu cầu nhập lại
+        textAreaConfirm.setVisible(true);
+        textAreaConfirm.invalidate();
+
+        resetPattern();
+        resetLines();
+    }
+    else if (registerStage == 1)
+    {
+        // Lần nhập xác nhận: so sánh với patternTemp
+        if (patternLength == patternTempLength &&
+			memcmp(patternBuffer, patternTemp, patternLength) == 0)
+        {
+            // Pattern trùng, lưu vào flash
+        	savePatternToFlash(patternBuffer, patternLength);
+
+
+            hideAllNotifications();
+            resetLines();
+            resetPattern();
+            setAllDotsVisible(false);
+
+            // Hiển thị thông báo thành công
+            textAreaConfirmSuccess.setVisible(true);
+            textAreaConfirmSuccess.invalidate();
             boxWithBorderTrue.setVisible(true);
             boxWithBorderTrue.invalidate();
-            textAreaTrue.setVisible(true);
-            textAreaTrue.invalidate();
+
+            isRegistering = false;
+            registerStage = 0;
+
 
             // Bật cờ successVisible kết quả thành công và reset bộ đếm tick
-            successVisible = true;
-            tickCounter = 0;
+             successRegister = true;
+             tickCounter = 0;
+        }
+        else
+        {
+            hideAllNotifications();
+            resetLines();
+            resetPattern();
+            setAllDotsVisible(false);
+
+            // Sai pattern, yêu cầu nhập lại
+            textAreaConfirmFail.setVisible(true);
+            textAreaConfirmFail.invalidate();
+            boxWithBorderTrue.setVisible(true);
+            boxWithBorderTrue.invalidate();
+
+            // Báo lỗi và quay lại stage đầu tiên
+            failRegister = true;
+            registerStage = 0;
         }
     }
 }
@@ -178,20 +294,108 @@ void DrawView::handleTickEvent()
             resetLines();
         }
     }
+    if (isLockoutActive)
+    {
+        // Chạy tick (mỗi tick ~1/60 giây)
+        lockoutTickCounter++;
+        if (lockoutTickCounter >= 60) // 60 ticks = ~1 giây
+        {
+            lockoutTickCounter = 0;
+            if (countdownSeconds > 0)
+            {
+                countdownSeconds--;
+                Unicode::snprintf(textAreaTryAgainBuffer, TEXTAREATRYAGAIN_SIZE,
+                                  "Try again in %u seconds", countdownSeconds);
+			    textAreaTryAgain.setVisible(true);
+                textAreaTryAgain.invalidate();
+            }
+            else
+            {
+                // Hết thời gian, mở khóa
+                isLockoutActive  = false;
+                failedAttempts   = 0;
+                countdownSeconds = 30;
+
+                hideAllNotifications();
+
+                // Reset tất cả về trạng thái ban đầu
+                resetPattern();
+                resetLines();
+
+                setAllDotsVisible(true);
+
+                textAreaStart.setVisible(true);
+                textAreaStart.invalidate();
+            }
+        }
+    }
+
+    if (successRegister)
+    {
+        tickCounter++;
+        if (tickCounter >= 150)
+        {
+            // 2,5 giây đã trôi qua, reset giao diện về màn pattern nhập
+        	successRegister = false;
+            tickCounter = 0;
+
+            hideAllNotifications();
+            setAllDotsVisible(true);
+            textAreaStart.setVisible(true);
+            textAreaStart.invalidate();
+
+            // Reset dữ liệu pattern và ẩn tất cả đường vẽ
+            resetPattern();
+            resetLines();
+        }
+    }
+
+    if (failRegister)
+    {
+        tickCounter++;
+        if (tickCounter >= 150)
+        {
+            // 2,5 giây đã trôi qua, reset giao diện về màn pattern nhập
+        	failRegister = false;
+            tickCounter = 0;
+            hideAllNotifications();
+            setAllDotsVisible(true);
+            textAreaRegister.setVisible(true);
+            textAreaRegister.invalidate();
+            // Reset dữ liệu pattern và ẩn tất cả đường vẽ
+            resetPattern();
+            resetLines();
+        }
+    }
+
 
     // Cuối cùng gọi base để TouchGFX tiếp tục phần xử lý tick mặc định
     DrawViewBase::handleTickEvent();
 }
 
+
 void DrawView::enterRegisterMode()
 {
-	isRegistering = true;
-	resetPattern();
-	resetLines();
+	successVisible = false;
+	isLockoutActive = false;
+	successRegister = false;
+	failRegister = false;
 
+	isRegistering = true;
+	registerStage = 0;  // reset trạng thái đăng ký
+    resetPattern();
+    resetLines();
+
+	memset(patternTemp, 0, sizeof(patternTemp));
 	hideAllNotifications();
-	setAllDotsVisible(false);
+	setAllDotsVisible(true);
+
+    textAreaRegister.setVisible(true);
+    textAreaRegister.invalidate();
 }
+
+
+
 
 void DrawView::hideAllNotifications()
 {
@@ -204,6 +408,24 @@ void DrawView::hideAllNotifications()
 
     textAreaTrue.setVisible(false);
     textAreaTrue.invalidate();
+
+    textAreaRegister.setVisible(false);
+    textAreaRegister.invalidate();
+
+    textAreaConfirm.setVisible(false);
+    textAreaConfirm.invalidate();
+
+    textAreaConfirmSuccess.setVisible(false);
+    textAreaConfirmSuccess.invalidate();
+
+    textAreaConfirmFail.setVisible(false);
+    textAreaConfirmFail.invalidate();
+
+    textAreaTryAgain.setVisible(false);
+    textAreaTryAgain.invalidate();
+
+    // textAreaDeleteAll.setVisible(false);
+    // textAreaDeleteAll.invalidate();
 
     // Tắt các hộp viền
     boxWithBorderTrue.setVisible(false);

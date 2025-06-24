@@ -164,6 +164,82 @@
             "TextId": "__SingleUse_WADJ",
             "TextRotation": "0",
             "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaRegister",
+            "X": 20,
+            "Y": 54,
+            "Width": 202,
+            "Height": 35,
+            "Visible": false,
+            "TextId": "__SingleUse_DPH5",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaConfirm",
+            "X": 20,
+            "Y": 54,
+            "Width": 202,
+            "Height": 35,
+            "Visible": false,
+            "TextId": "__SingleUse_CD2K",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaConfirmSuccess",
+            "X": 31,
+            "Y": 151,
+            "Width": 179,
+            "Height": 18,
+            "Visible": false,
+            "TextId": "__SingleUse_KEYZ",
+            "TextRotation": "0"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaConfirmFail",
+            "X": 58,
+            "Y": 151,
+            "Width": 126,
+            "Height": 18,
+            "Visible": false,
+            "TextId": "__SingleUse_1HLR",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaTryAgain",
+            "X": 34,
+            "Y": 54,
+            "Width": 179,
+            "Height": 35,
+            "TextId": "__SingleUse_9Z06",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 30
+            }
           }
         ],
         "Interactions": []

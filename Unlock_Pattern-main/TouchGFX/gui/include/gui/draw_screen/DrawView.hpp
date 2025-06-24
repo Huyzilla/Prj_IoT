@@ -23,20 +23,19 @@ public:
 
     void enterRegisterMode();
 
+
 protected:
     void addPointToPattern(uint8_t dotIndex);
     void drawLineBetweenLastTwoDots();
     void resetPattern();
     void resetLines();
+    void setAllDotsVisible(bool visible);
+    void hideAllNotifications();
+    void processRegisterPattern();
 
     uint8_t patternBuffer[9];
     bool pointUsed[9];
     uint8_t patternLength;
-
-    bool isRegistering;
-
-    void setAllDotsVisible(bool visible);
-    void hideAllNotifications();
 
     // Tọa độ các Dot
     int dotX[9] = {27, 105, 182, 27, 105, 182, 27, 105, 182};
@@ -49,6 +48,24 @@ protected:
     // Các biến mới để quản lý thời gian hiển thị thông báo thành công
     bool successVisible;        // = true khi đang hiển thị hộp 'True'
     uint16_t tickCounter;       // Đếm số tick
+
+    bool isRegistering ; // kiểm tra trạng thái đăng ký
+    uint8_t patternTemp[9];  // lưu pattern đăng ký lần đầu
+    uint8_t patternTempLength;
+    int registerStage;       // trạng thái đăng ký: 0 - chưa nhập, 1 - đã nhập lần 1
+    bool successRegister;
+    bool failRegister;
+
+    // Số lần nhập sai liên tiếp
+    uint8_t failedAttempts;
+    // Đang ở trạng thái khóa (đếm ngược)
+    bool isLockoutActive;
+    // Số giây còn lại trong đếm ngược
+    uint16_t countdownSeconds;
+    // Đếm tick để quy đổi sang giây
+    uint16_t lockoutTickCounter;
+
+
 };
 
 #endif // DRAWVIEW_HPP

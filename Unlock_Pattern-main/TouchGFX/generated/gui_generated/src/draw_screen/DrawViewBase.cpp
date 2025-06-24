@@ -82,6 +82,42 @@ DrawViewBase::DrawViewBase()
     textAreaTrue.setTypedText(touchgfx::TypedText(T___SINGLEUSE_WADJ));
     textAreaTrue.setVisible(false);
     add(textAreaTrue);
+
+    textAreaRegister.setPosition(20, 54, 202, 35);
+    textAreaRegister.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    textAreaRegister.setLinespacing(0);
+    textAreaRegister.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DPH5));
+    textAreaRegister.setVisible(false);
+    add(textAreaRegister);
+
+    textAreaConfirm.setPosition(20, 54, 202, 35);
+    textAreaConfirm.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    textAreaConfirm.setLinespacing(0);
+    textAreaConfirm.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CD2K));
+    textAreaConfirm.setVisible(false);
+    add(textAreaConfirm);
+
+    textAreaConfirmSuccess.setPosition(31, 151, 179, 18);
+    textAreaConfirmSuccess.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    textAreaConfirmSuccess.setLinespacing(0);
+    textAreaConfirmSuccess.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KEYZ));
+    textAreaConfirmSuccess.setVisible(false);
+    add(textAreaConfirmSuccess);
+
+    textAreaConfirmFail.setPosition(58, 151, 126, 18);
+    textAreaConfirmFail.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    textAreaConfirmFail.setLinespacing(0);
+    textAreaConfirmFail.setTypedText(touchgfx::TypedText(T___SINGLEUSE_1HLR));
+    textAreaConfirmFail.setVisible(false);
+    add(textAreaConfirmFail);
+
+    textAreaTryAgain.setPosition(34, 54, 179, 35);
+    textAreaTryAgain.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    textAreaTryAgain.setLinespacing(0);
+    textAreaTryAgainBuffer[0] = 0;
+    textAreaTryAgain.setWildcard(textAreaTryAgainBuffer);
+    textAreaTryAgain.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9Z06));
+    add(textAreaTryAgain);
 }
 
 DrawViewBase::~DrawViewBase()
